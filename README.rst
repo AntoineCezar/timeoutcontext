@@ -21,7 +21,9 @@ timeout context manager and decorator.
 Usage
 -----
 
-As a context manager::
+As a context manager:
+
+.. code:: python
 
     from timeoutcontext import timeout, TimeoutException
     from time import sleep
@@ -32,7 +34,9 @@ As a context manager::
     except TimeoutException:
         print('timeout')
 
-As a decorator::
+As a decorator:
+
+.. code:: python
 
     from timeoutcontext import timeout, TimeoutException
     from time import sleep
