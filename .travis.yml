@@ -1,0 +1,17 @@
+# Config file for automatic testing at travis-ci.org
+
+language: python
+
+python:
+  - "3.4"
+  - "3.3"
+  - "2.7"
+
+before_script:
+  - pip install coverage
+
+script: coverage run --source timeoutcontext setup.py test
+
+after_success:
+  - pip install coveralls
+  - coveralls
