@@ -12,6 +12,10 @@ class TimeoutException(Exception):
     pass
 
 
+def raise_timeout(signum, frame):
+    raise TimeoutException()
+
+
 class timeout(ContextDecorator):
     """Raises TimeoutException when the gien time in seconds elapsed.
 
@@ -59,12 +63,9 @@ class timeout(ContextDecorator):
             self._restore_alarm_handler()
             signal.alarm(0)
 
-    def _on_timeout(self, signum, frame):
-        raise TimeoutException()
-
     def _replace_alarm_handler(self):
         self._old_alarm_handler = signal.signal(signal.SIGALRM,
-                                                self._on_timeout)
+                                                raise_timeout)
 
     def _restore_alarm_handler(self):
         signal.signal(signal.SIGALRM, self._old_alarm_handler)
