@@ -24,7 +24,7 @@ test_requirements = [
 
 setup(
     name='timeoutcontext',
-    version='0.1.0',
+    version='1.0.0',
     description="A signal based timeout context manager",
     long_description=readme + '\n\n' + history,
     author="Antoine Cezar",
@@ -41,7 +41,7 @@ setup(
     zip_safe=False,
     keywords='timeoutcontext',
     classifiers=[
-        'Development Status :: 2 - Pre-Alpha',
+        'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: BSD License',
         'Natural Language :: English',
