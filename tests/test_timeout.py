@@ -58,6 +58,28 @@ class TestTimeoutAsAContextManager(BaseTestCase):
 
             signal_mock.signal.assert_not_called()
 
+    def test_it_does_not_timeout_when_given_time_is_zero(self):
+        with self.assertNotRaises(TimeoutException):
+            with timeout(0):
+                time.sleep(1)
+
+    @patch('timeoutcontext._timeout.signal')
+    def test_it_does_not_replace_alarm_handler_when_seconds_is_zero(self, signal_mock):
+            with timeout(0):
+                signal_mock.signal.assert_not_called()
+
+    @patch('timeoutcontext._timeout.signal')
+    def test_it_does_not_set_alarm_when_seconds_is_zero(self, signal_mock):
+            with timeout(0):
+                signal_mock.alarm.assert_not_called()
+
+    @patch('timeoutcontext._timeout.signal')
+    def test_it_does_not_restore_alarm_handler_when_seconds_is_zero(self, signal_mock):
+            with timeout(0):
+                pass
+
+            signal_mock.signal.assert_not_called()
+
     @patch('timeoutcontext._timeout.signal')
     def test_it_replace_alarm_handler_on_enter(self, signal_mock):
         with timeout(2):
