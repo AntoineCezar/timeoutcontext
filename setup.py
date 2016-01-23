@@ -19,6 +19,7 @@ if sys.version_info < (3, 2):
     requirements.append('contextdecorator')
 
 test_requirements = [
+    'mock'
 ]
 
 setup(
