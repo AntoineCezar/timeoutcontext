@@ -24,7 +24,7 @@ test_requirements = [
 
 setup(
     name='timeoutcontext',
-    version='1.0.0',
+    version='1.1.0',
     description="A signal based timeout context manager",
     long_description=readme + '\n\n' + history,
     author="Antoine Cezar",

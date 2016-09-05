@@ -18,6 +18,9 @@ Timeoutcontext
 A `signal <https://docs.python.org/library/signal.html#>`_ based
 timeout context manager and decorator.
 
+Since it is signal based this package can not work under Windows operating
+system.
+
 Usage
 -----
 
@@ -25,21 +28,27 @@ As a context manager:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutException
+    import sys
     from time import sleep
+    from timeoutcontext import timeout, TimeoutError
+    if sys.version_info < (3, 3):
+        from timeoutcontext._timeout import TimeoutError
 
     try:
         with timeout(1):
             sleep(2)
-    except TimeoutException:
+    except TimeoutError:
         print('timeout')
 
 As a decorator:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutException
+    import sys
     from time import sleep
+    from timeoutcontext import timeout, TimeoutError
+    if sys.version_info < (3, 3):
+        from timeoutcontext._timeout import TimeoutError
 
     @timeout(1)
     def wait():
@@ -47,7 +56,7 @@ As a decorator:
 
     try:
         wait()
-    except TimeoutException:
+    except TimeoutError:
         print('timeout')
 
 License

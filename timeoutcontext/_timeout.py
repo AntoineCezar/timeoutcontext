@@ -8,34 +8,41 @@ else:
     from contextlib import ContextDecorator
 
 
-class TimeoutException(Exception):
-    pass
+if sys.version_info < (3, 3):
+    class TimeoutError(Exception):
+        pass
 
 
 def raise_timeout(signum, frame):
-    raise TimeoutException()
+    raise TimeoutError()
 
 
 class timeout(ContextDecorator):
-    """Raises TimeoutException when the gien time in seconds elapsed.
+    """Raises TimeoutError when the gien time in seconds elapsed.
 
         As a context manager:
 
-            >>> from timeoutcontext import timeout, TimeoutException
+            >>> import sys
             >>> from time import sleep
+            >>> from timeoutcontext import timeout
+            >>> if sys.version_info < (3, 3):
+            ...     from timeoutcontext import TimeoutError
             >>>
             >>> try:
             ...     with timeout(1):
             ...         sleep(2)
-            ... except TimeoutException:
+            ... except TimeoutError:
             ...     print('timeout')
             ...
             timeout
 
         As a decorator:
 
-            >>> from timeoutcontext import timeout, TimeoutException
+            >>> import sys
             >>> from time import sleep
+            >>> from timeoutcontext import timeout
+            >>> if sys.version_info < (3, 3):
+            ...     from timeoutcontext import TimeoutError
             >>>
             >>> @timeout(1)
             ... def wait():
@@ -43,7 +50,7 @@ class timeout(ContextDecorator):
             ...
             >>> try:
             ...     wait()
-            ... except TimeoutException:
+            ... except TimeoutError:
             ...     print('timeout')
             ...
             timeout
