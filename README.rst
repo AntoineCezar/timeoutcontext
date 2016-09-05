@@ -28,20 +28,20 @@ As a context manager:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutException
+    from timeoutcontext import timeout, TimeoutError
     from time import sleep
 
     try:
         with timeout(1):
             sleep(2)
-    except TimeoutException:
+    except TimeoutError:
         print('timeout')
 
 As a decorator:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutException
+    from timeoutcontext import timeout, TimeoutError
     from time import sleep
 
     @timeout(1)
@@ -50,7 +50,7 @@ As a decorator:
 
     try:
         wait()
-    except TimeoutException:
+    except TimeoutError:
         print('timeout')
 
 License

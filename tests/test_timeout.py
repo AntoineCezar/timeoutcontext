@@ -8,9 +8,9 @@ from contextlib import contextmanager
 from mock import patch
 
 from timeoutcontext._timeout import (
+    TimeoutError,
     raise_timeout,
     timeout,
-    TimeoutException,
 )
 
 
@@ -27,17 +27,17 @@ class BaseTestCase(unittest.TestCase):
 class TestTimeoutAsAContextManager(BaseTestCase):
 
     def test_it_raise_timeout_exception_when_time_is_out(self):
-        with self.assertRaises(TimeoutException):
+        with self.assertRaises(TimeoutError):
             with timeout(1):
                 time.sleep(2)
 
     def test_it_does_not_raise_timeout_exception_when_time_is_not_out(self):
-        with self.assertNotRaises(TimeoutException):
+        with self.assertNotRaises(TimeoutError):
             with timeout(2):
                 time.sleep(1)
 
     def test_it_does_not_timeout_when_given_time_is_none(self):
-        with self.assertNotRaises(TimeoutException):
+        with self.assertNotRaises(TimeoutError):
             with timeout(None):
                 time.sleep(1)
 
@@ -59,7 +59,7 @@ class TestTimeoutAsAContextManager(BaseTestCase):
             signal_mock.signal.assert_not_called()
 
     def test_it_does_not_timeout_when_given_time_is_zero(self):
-        with self.assertNotRaises(TimeoutException):
+        with self.assertNotRaises(TimeoutError):
             with timeout(0):
                 time.sleep(1)
 
@@ -116,7 +116,7 @@ class TestTimeoutAsADecorator(BaseTestCase):
         def decorated():
             time.sleep(2)
 
-        with self.assertRaises(TimeoutException):
+        with self.assertRaises(TimeoutError):
             decorated()
 
     def test_it_does_not_raise_timeout_exception_when_time_is_not_out(self):
@@ -124,5 +124,5 @@ class TestTimeoutAsADecorator(BaseTestCase):
         def decorated():
             time.sleep(1)
 
-        with self.assertNotRaises(TimeoutException):
+        with self.assertNotRaises(TimeoutError):
             decorated()
