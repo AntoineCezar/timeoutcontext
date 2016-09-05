@@ -18,6 +18,9 @@ Timeoutcontext
 A `signal <https://docs.python.org/library/signal.html#>`_ based
 timeout context manager and decorator.
 
+Since it is signal based this package can not work under Windows operating
+system.
+
 Usage
 -----
 
