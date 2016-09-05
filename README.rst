@@ -30,7 +30,7 @@ As a context manager:
 
     import sys
     from time import sleep
-    from timeoutcontext import timeout, TimeoutError
+    from timeoutcontext import timeout
     if sys.version_info < (3, 3):
         from timeoutcontext._timeout import TimeoutError
 
@@ -46,7 +46,7 @@ As a decorator:
 
     import sys
     from time import sleep
-    from timeoutcontext import timeout, TimeoutError
+    from timeoutcontext import timeout
     if sys.version_info < (3, 3):
         from timeoutcontext._timeout import TimeoutError
 
