@@ -28,8 +28,11 @@ As a context manager:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutError
+    import sys
     from time import sleep
+    from timeoutcontext import timeout, TimeoutError
+    if sys.version_info < (3, 3):
+        from timeoutcontext._timeout import TimeoutError
 
     try:
         with timeout(1):
@@ -41,8 +44,11 @@ As a decorator:
 
 .. code:: python
 
-    from timeoutcontext import timeout, TimeoutError
+    import sys
     from time import sleep
+    from timeoutcontext import timeout, TimeoutError
+    if sys.version_info < (3, 3):
+        from timeoutcontext._timeout import TimeoutError
 
     @timeout(1)
     def wait():

@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
+import sys
 import unittest
 import time
 from contextlib import contextmanager
@@ -8,10 +9,11 @@ from contextlib import contextmanager
 from mock import patch
 
 from timeoutcontext._timeout import (
-    TimeoutError,
     raise_timeout,
     timeout,
 )
+if sys.version_info < (3, 3):
+    from timeoutcontext._timeout import TimeoutError
 
 
 class BaseTestCase(unittest.TestCase):
