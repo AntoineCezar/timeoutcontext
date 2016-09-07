@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 import sys
 import signal
 if sys.version_info < (3, 2):
@@ -15,7 +16,7 @@ def raise_timeout(signum, frame):
     raise TimeoutError()
 
 
-class timeout(ContextDecorator):
+class SignalTimeout(ContextDecorator):
     """Raises TimeoutError when the gien time in seconds elapsed.
 
         As a context manager:

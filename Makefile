@@ -45,7 +45,7 @@ test:
 	python setup.py test
 
 doctest:
-	python -m doctest timeoutcontext/_timeout.py
+	python -m doctest timeoutcontext/signal_timeout.py
 
 test-all:
 	tox

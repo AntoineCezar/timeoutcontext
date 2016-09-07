@@ -2,7 +2,7 @@
 import sys
 import pkg_resources
 
-from ._timeout import timeout
+from .signal_timeout import SignalTimeout as timeout
 if sys.version_info < (3, 3):
     from .timeout_error import TimeoutError
 
