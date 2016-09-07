@@ -2,9 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys
-import unittest
 import time
-from contextlib import contextmanager
 
 from mock import patch
 
@@ -15,15 +13,7 @@ from timeoutcontext.signal_timeout import (
 if sys.version_info < (3, 3):
     from timeoutcontext import TimeoutError
 
-
-class BaseTestCase(unittest.TestCase):
-
-    @contextmanager
-    def assertNotRaises(self, exc_type):
-        try:
-            yield None
-        except exc_type:
-            raise self.failureException('{} raised'.format(exc_type.__name__))
+from .base_test_case import BaseTestCase
 
 
 class TestTimeoutAsAContextManager(BaseTestCase):
