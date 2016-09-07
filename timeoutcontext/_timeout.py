@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import sys
 import signal
 if sys.version_info < (3, 2):
@@ -9,8 +8,7 @@ else:
 
 
 if sys.version_info < (3, 3):
-    class TimeoutError(Exception):
-        pass
+    from .timeout_error import TimeoutError
 
 
 def raise_timeout(signum, frame):

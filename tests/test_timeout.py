@@ -13,7 +13,7 @@ from timeoutcontext._timeout import (
     timeout,
 )
 if sys.version_info < (3, 3):
-    from timeoutcontext._timeout import TimeoutError
+    from timeoutcontext import TimeoutError
 
 
 class BaseTestCase(unittest.TestCase):
