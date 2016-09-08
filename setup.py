@@ -16,7 +16,7 @@ requirements = [
 ]
 
 if sys.version_info < (3, 2):
-    requirements.append('contextdecorator')
+    requirements.append('contextlib2')
 
 test_requirements = [
     'mock'
