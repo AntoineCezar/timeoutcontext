@@ -62,7 +62,7 @@ class timeout(ContextDecorator):
     def __enter__(self):
         if self._seconds:
             self._replace_alarm_handler()
-            signal.alarm(self._seconds)
+            signal.setitimer(signal.ITIMER_REAL, self._seconds)
         return self
 
     def __exit__(self, exc_type, exc_value, traceback):
