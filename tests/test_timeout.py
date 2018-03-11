@@ -6,7 +6,7 @@ import unittest
 import time
 from contextlib import contextmanager
 
-from mock import patch, ANY
+from mock import patch
 
 from timeoutcontext._timeout import (
     raise_timeout,
@@ -91,7 +91,7 @@ class TestTimeoutAsAContextManager(BaseTestCase):
     @patch('timeoutcontext._timeout.signal')
     def test_it_request_alarm_to_be_sent_in_given_seconds_on_enter(self, signal_mock):
         with timeout(2):
-            signal_mock.setitimer.assert_called_with(ANY, 2)
+            signal_mock.setitimer.assert_called_with(signal_mock.ITIMER_REAL, 2)
 
     @patch('timeoutcontext._timeout.signal')
     def test_it_restore_alarm_handler_on_exit(self, signal_mock):
