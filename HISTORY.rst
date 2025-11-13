@@ -3,6 +3,20 @@
 History
 -------
 
+2.0.0 (2025-11-14)
+------------------
+
+* Require python >= 3.9
+* Use uv instead of setuptools
+* Use pytest as test launcher
+* use ruff instead of flake8
+* Use just instead of make
+* Drop tox
+* Add typing
+* Fix `link "ImportError: No module named contextdecorator" <https://github.com/AntoineCezar/timeoutcontext/issues/8>`
+* Fix `link "ModuleNotFoundError: No module named 'pkg_resources'" <https://github.com/AntoineCezar/timeoutcontext/issues/11>`
+* Use github action instead of travis
+
 1.2.0 (2018-03-11)
 ------------------
 
