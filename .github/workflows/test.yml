@@ -1,0 +1,41 @@
+name: check
+on: [push]
+jobs:
+  install:
+    name: python
+    runs-on: ubuntu-latest
+    strategy:
+      max-parallel: 3
+      matrix:
+        python-version:
+          - "3.10"
+          - "3.11"
+          - "3.13"
+    env:
+      UV_PYTHON: ${{ matrix.python-version }}
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Install just
+        uses: extractions/setup-just@v3
+
+      - name: Install uv
+        uses: astral-sh/setup-uv@v6
+
+      - name: Install the project
+        run: just install
+
+      - name: Check python formating
+        run: just check-python-formating
+
+      - name: Check python typing
+        run: just check-python-typing
+
+      - name: Check python docstrings
+        run: just check-python-docstrings
+
+      - name: Check toml formating
+        run: just check-toml-formating
+
+      - name: Run tests
+        run: just test
