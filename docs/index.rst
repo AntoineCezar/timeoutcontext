@@ -4,7 +4,7 @@
    contain the root `toctree` directive.
 
 Welcome to Timeoutcontext's documentation!
-======================================
+==========================================
 
 Contents:
 
