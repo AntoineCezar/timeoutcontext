@@ -2,9 +2,6 @@
 Timeoutcontext
 ==============
 
-.. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg
-        :target: http://timeoutcontext.readthedocs.org/
-
 .. image:: https://img.shields.io/pypi/v/timeoutcontext.svg
         :target: https://pypi.python.org/pypi/timeoutcontext
 
