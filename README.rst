@@ -2,9 +2,6 @@
 Timeoutcontext
 ==============
 
-.. image:: https://img.shields.io/travis/AntoineCezar/timeoutcontext.svg
-        :target: https://travis-ci.org/AntoineCezar/timeoutcontext
-
 .. image:: https://img.shields.io/badge/docs-latest-brightgreen.svg
         :target: http://timeoutcontext.readthedocs.org/
 
