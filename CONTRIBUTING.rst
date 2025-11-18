@@ -67,13 +67,13 @@ Ready to contribute? Here's how to set up `timeoutcontext` for local development
     $ just install
 
 6. Make your changes.
-6. Check your changes::
+7. Check your changes::
 
     $ just check-all
     $ just test
 
-7. Commit your changes and push your branch to GitHub.
-7. Submit a pull request through the GitHub website.
+8. Commit your changes and push your branch to GitHub.
+9. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
