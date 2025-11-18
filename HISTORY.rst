@@ -6,7 +6,7 @@ History
 2.0.0 (2025-11-14)
 ------------------
 
-* Require python >= 3.9
+* Require python >= 3.10
 * Use uv instead of setuptools
 * Use pytest as test launcher
 * use ruff instead of flake8
